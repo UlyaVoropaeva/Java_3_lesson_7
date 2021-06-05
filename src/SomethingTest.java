@@ -9,6 +9,11 @@ public class SomethingTest {
         System.out.println("Before Suite");
     }
 
+    @Test(priority = 4)
+    public void test4() {
+        System.out.println("Test 4");
+    }
+
     @Test(priority = 3)
     public void test3() {
         System.out.println("Test 3");

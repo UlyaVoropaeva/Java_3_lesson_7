@@ -10,19 +10,19 @@ import java.util.Comparator;
 
 public class Tester {
 
-    public static void start(Class clazz) throws InvocationTargetException, IllegalAccessException {
+    public static void start(Class cl) throws InvocationTargetException, IllegalAccessException {
         Method beforeMethod = null;
         Method afterMethod = null;
         ArrayList<Method> testMethods = new ArrayList<>();
 
         Object obj = null;
         try {
-            obj = clazz.newInstance();
+            obj = cl.newInstance();
         } catch (InstantiationException e) {
             e.printStackTrace();
         }
 
-        for (Method m : clazz.getDeclaredMethods()) {
+        for (Method m : cl.getDeclaredMethods()) {
             if (m.isAnnotationPresent(Test.class)) {
                 testMethods.add(m);
             } else if (m.isAnnotationPresent(BeforeSuite.class)) {
